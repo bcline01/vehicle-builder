@@ -22,9 +22,12 @@ class Motorbike extends Vehicle {
     this.year = year;
     this.weight = weight;
     this.topSpeed = topSpeed;
+   
+  if (wheels.length !== 2) {
+    this.wheels = [new Wheel(), new Wheel()];
+  } else {
     this.wheels = wheels;
-
-    this.wheels = wheels.slice(0, 2).concat(Array(Math.max(0, 2 - wheels.length)).fill(new Wheel()));
+  }
 
   }
 
@@ -34,7 +37,8 @@ class Motorbike extends Vehicle {
 
   override printDetails(): void {
     super.printDetails();
-    console.log(this.vin, this.make, this.model, this.year, this.weight, this.topSpeed, this.color, this.wheels)
+    console.log(`Wheel 1: ${this.wheels[0].getDiameter} inch with a ${this.wheels[0].getTireBrand} tire`);
+    console.log(`Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`);
   }
 
   // TODO: *Declare properties of the Motorbike class
@@ -51,7 +55,7 @@ class Motorbike extends Vehicle {
 
   // TODO: *Override the printDetails method from the Vehicle class
   // TODO: *The method should call the printDetails method of the parent class
-  // TODO: T*he method should log the details of the Motorbike
+  // TODO: *The method should log the details of the Motorbike
   // TODO: *The details should include the VIN, make, model, year, weight, top speed, color, and wheels
 }
 
