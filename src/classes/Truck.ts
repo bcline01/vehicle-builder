@@ -17,11 +17,19 @@ class Truck extends Vehicle implements AbleToTow {
   topSpeed: number;
   wheels: Wheel[];
 
-
   constructor(vin: string, color: string, make: string, model: string, year: number, weight: number, topSpeed: number, wheels: Wheel[], towingCapacity: number) {
+    
     super();
-
+    this.vin = vin;
+    this.color = color;
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.weight = weight;
+    this.topSpeed = topSpeed;
     this.towingCapacity = towingCapacity;
+    
+    
     if (wheels.length !== 4) {
       this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
     } else {
@@ -41,6 +49,8 @@ class Truck extends Vehicle implements AbleToTow {
   // TODO: Implement the tow method from the AbleToTow interface
   tow(vehicle: Truck | Motorbike | Car): void {
     const vehicleMake = vehicle.make;
+    const vehicleModel = vehicle.model;
+    const vehicleweight = vehicle.weight;
     if (vehicle.weight <= this.towingCapacity) {
       console.log(`Vehicle is being towed.`);
     } else {
@@ -56,21 +66,22 @@ class Truck extends Vehicle implements AbleToTow {
   // TODO: Override the printDetails method from the Vehicle class
   override printDetails(): void {
     super.printDetails();
-
-      console.log(
-        `Wheel 1: ${this.wheels[0].getDiameter} inch with a ${this.wheels[0].getTireBrand} tire`);
-      console.log(
-        `Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`);
-      console.log(
-        `Wheel 3: ${this.wheels[2].getDiameter} inch with a ${this.wheels[2].getTireBrand} tire`);
-      console.log(
-        `Wheel 4: ${this.wheels[3].getDiameter} inch with a ${this.wheels[3].getTireBrand} tire`);
+      console.log(`VIN: ${this.vin}`);
+      console.log(`Vehicle Make: ${this.make}`);
+      console.log(`Vehicle Model: ${this.model}`);
+      console.log(`Year: ${this.year}`);
+      console.log(`Weight: ${this.weight} kg`);
+      console.log(`Top Speed: ${this.topSpeed}`);
+      console.log(`Color: ${this.color}`);
+      console.log(`Towing Capacity: ${this.towingCapacity}`);
+      console.log(`Number of Wheels: ${this.wheels.length}`);
+    }
     
     // TODO: The method should call the printDetails method of the parent class
     // TODO: The method should log the details of the Truck
     // TODO: The details should include the VIN, make, model, year, weight, top speed, color, towing capacity, and wheels
 }
-}
+
 
 
 // Export the Truck class as the default export
