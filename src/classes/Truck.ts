@@ -7,6 +7,9 @@ import AbleToTow from '../interfaces/AbleToTow.js';
 
 // TODO: The Truck class should extend the Vehicle class and should implement the AbleToTow interface
 class Truck extends Vehicle implements AbleToTow {
+  static tow(vehicleToTow: any) {
+    throw new Error("Method not implemented.");
+  }
   towingCapacity: number;
   vin: string;
   color: string;
