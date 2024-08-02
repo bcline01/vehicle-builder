@@ -69,7 +69,7 @@ class Cli {
           // create a car
           this.createCar();
         } else if (answers.vehicleType === 'Truck') {
-          this.createTruck;
+          this.createTruck();
         } else {
           this.createMotorbike();
         }
@@ -182,8 +182,8 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
+          [],
           parseInt(answers.towingCapacity),
-          []
         );
         // TODO: *Use the answers object to pass the required properties to the Truck constructor
         // TODO: push the truck to the vehicles array
@@ -262,7 +262,6 @@ class Cli {
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
           [new Wheel(parseInt(answers.frontWheelDiameter), answers.frontWheelBrand), new Wheel(parseInt(answers.rearWheelDiameter), answers.rearWheelBrand)],
-          []
         );
         // TODO: Use the answers object to pass the required properties to the Motorbike constructor
         // TODO: push the motorbike to the vehicles array
@@ -295,6 +294,7 @@ class Cli {
         },
       ])
       .then((answers) => {
+        console.log(answers)
         // TODO: check if the selected vehicle is the truck
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
         // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
