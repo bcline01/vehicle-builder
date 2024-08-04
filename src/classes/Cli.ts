@@ -23,9 +23,9 @@ class Cli {
   static generateVin(): string {
     // return a random string
     return (
-      Math.random().toString(36).substring(2, 15) +
-      Math.random().toString(36).substring(2, 15)
-    );
+      Math.random().toString(36).substring(2, 11) +
+      Math.random().toString(36).substring(2, 11)
+    ).substring(0,17);
   }
 
   // method to choose a vehicle from existing vehicles
